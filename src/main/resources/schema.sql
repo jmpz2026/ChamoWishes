@@ -1,0 +1,27 @@
+CREATE TABLE IF NOT EXISTS app_user (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    rolId INT NOT NULL,
+    name VARCHAR(20) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS product (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) NOT NULL,
+    price FLOAT NOT NULL,
+    stock INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS wish (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    userId INT NOT NULL,
+    productId INT NOT NULL,
+    FOREIGN KEY (productId) REFERENCES product(id),
+    FOREIGN KEY (userId) REFERENCES app_user(id)
+);
+
+CREATE TABLE IF NOT EXISTS wish_history (
+    id INT PRIMARY KEY,
+    userId INT NOT NULL,
+    productId INT NOT NULL
+);
