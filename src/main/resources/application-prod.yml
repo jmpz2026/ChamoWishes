@@ -1,0 +1,33 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: chamoWishes
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASS}
+    driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      mode: always
+      schema-locations:
+      data-locations: classpath:data-postgres.sql
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    defer-datasource-initialization: true
+logging:
+  level:
+    org.springframework: INFO
+    com.myapp: DEBUG
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration-ms: ${JWT_MS}
+
+frontend:
+  url: ${FRONTEND_URL}
