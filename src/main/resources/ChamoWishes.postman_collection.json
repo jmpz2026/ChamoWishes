@@ -1,149 +1,156 @@
 {
-	"info": {
-		"name": "ChamoWishes",
-		"description": "Coleccion de pruebas para la API de ChamoWishes. Cambia la variable baseUrl al desplegar.",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"variable": [
-		{
-			"key": "baseUrl",
-			"value": "http://localhost:8080",
-			"type": "string"
-		}
-	],
-	"item": [
-		{
-			"name": "Product",
-			"item": [
-				{
-					"name": "Get Product By Id",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"productId\": 1\n}"
-						},
-						"url": {
-							"raw": "{{baseUrl}}/product",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"product"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Products",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/product/all",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"product",
-								"all"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Wish",
-			"item": [
-				{
-					"name": "Add Product Wish",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"userId\": 2,\n    \"productId\": 1\n}"
-						},
-						"url": {
-							"raw": "{{baseUrl}}/wish",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"wish"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Product Wish",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"wishId\": 1\n}"
-						},
-						"url": {
-							"raw": "{{baseUrl}}/wish",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"wish"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Product Wish",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"userId\": 2\n}"
-						},
-						"url": {
-							"raw": "{{baseUrl}}/wish/all",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"wish",
-								"all"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		}
-	]
+  "info": {
+    "_postman_id": "0856a7f8-d93c-45e0-a38c-ea10fcc4421c",
+    "name": "ChamoWishes",
+    "description": "Coleccion de pruebas para la API de ChamoWishes. Cambia la variable baseUrl al desplegar.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52284123",
+    "_collection_link": "https://go.postman.co/collection/52284123-0856a7f8-d93c-45e0-a38c-ea10fcc4421c?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "Get Product By Id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"productId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/product",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "product"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/product/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "product",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Wish",
+      "item": [
+        {
+          "name": "Add Product Wish",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"userId\": 2,\n    \"productId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/wish",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "wish"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Product Wish",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"wishId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/wish",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "wish"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Product Wish",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/wish/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "wish",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
 }

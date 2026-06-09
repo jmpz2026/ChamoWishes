@@ -13,11 +13,9 @@ public class WishHistoryEntity {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "userId", nullable = false)
-    private AppUserEntity user;
+    @Column(name = "userId")
+    private Long user;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "productId", nullable = false)
-    private ProductEntity product;
+    @Column(name = "productId")
+    private Long productId;
 }

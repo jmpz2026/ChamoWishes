@@ -15,6 +15,7 @@ public class MessageConstant {
     public static final String WISH_EXISTS = "Wish already exists";
     public static final String WISH_ADDED = "Wish added";
     public static final String WISH_DELETED = "Wish deleted";
+    public static final String WISH_PRODUCT_NOT_ENOUGH = "Wish product not enough";
 
     // USER
     public static final String USER_NOT_FOUND = "User not found";

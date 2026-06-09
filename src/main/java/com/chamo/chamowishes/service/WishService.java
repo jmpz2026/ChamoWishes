@@ -12,9 +12,11 @@ import com.chamo.chamowishes.dto.wish.list.WishListResponseDTO;
 import com.chamo.chamowishes.entity.AppUserEntity;
 import com.chamo.chamowishes.entity.ProductEntity;
 import com.chamo.chamowishes.entity.WishEntity;
+import com.chamo.chamowishes.entity.WishHistoryEntity;
 import com.chamo.chamowishes.exception.ResourceNotFoundException;
 import com.chamo.chamowishes.repository.AppUserRepository;
 import com.chamo.chamowishes.repository.ProductRepository;
+import com.chamo.chamowishes.repository.WishHistoryRepository;
 import com.chamo.chamowishes.repository.WishRepository;
 import org.springframework.stereotype.Service;
 
@@ -25,11 +27,13 @@ import java.util.List;
 public class WishService {
 
     private final WishRepository wishRepository;
+    private final WishHistoryRepository wishHistoryRepository;
     private final ProductRepository productRepository;
     private final AppUserRepository appUserRepository;
 
-    public WishService(WishRepository wishRepository, ProductRepository productRepository, AppUserRepository appUserRepository) {
+    public WishService(WishRepository wishRepository, WishHistoryRepository wishHistoryRepository, ProductRepository productRepository, AppUserRepository appUserRepository) {
         this.wishRepository = wishRepository;
+        this.wishHistoryRepository = wishHistoryRepository;
         this.productRepository = productRepository;
         this.appUserRepository = appUserRepository;
     }
@@ -57,8 +61,14 @@ public class WishService {
         productResponseDTO.setStock(productEntity.getStock());
 
         WishAddResponseDTO wishAddResponseDTO = new WishAddResponseDTO();
-        wishAddResponseDTO.setUserId(appUserEntity.getId());
+        wishAddResponseDTO.setUserId(wishEntity.getUser().getId());
         wishAddResponseDTO.setProductResponseDTO(productResponseDTO);
+
+        WishHistoryEntity wishHistoryEntity = new WishHistoryEntity();
+        wishHistoryEntity.setId(wishEntity.getId());
+        wishHistoryEntity.setProductId(wishEntity.getProduct().getId());
+        wishHistoryEntity.setUser(wishEntity.getUser().getId());
+        wishHistoryRepository.save(wishHistoryEntity);
 
         ApiResponseDTO<WishAddResponseDTO> apiResponseDTO = new ApiResponseDTO<>();
         apiResponseDTO.setData(wishAddResponseDTO);
@@ -98,6 +108,9 @@ public class WishService {
             productResponseDTO.setName(wishEntity.getProduct().getName());
             productResponseDTO.setPrice(wishEntity.getProduct().getPrice());
             productResponseDTO.setStock(wishEntity.getProduct().getStock());
+            if (wishEntity.getProduct().getStock() <= 0){
+                productResponseDTO.setAlert(MessageConstant.WISH_PRODUCT_NOT_ENOUGH);
+            }
             productResponseDTOList.add(productResponseDTO);
         });
 
