@@ -9,6 +9,7 @@ import com.chamo.chamowishes.dto.wish.list.WishListRequestDTO;
 import com.chamo.chamowishes.dto.wish.list.WishListResponseDTO;
 import com.chamo.chamowishes.service.WishService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,18 +29,18 @@ public class WishController {
     @PostMapping
     public ResponseEntity<ApiResponseDTO<WishAddResponseDTO>> addProductWish(@RequestBody WishAddRequestDTO wishAddRequestDTO) {
         ApiResponseDTO<WishAddResponseDTO> apiResponseDTO = wishService.addProductWish(wishAddRequestDTO);
-        return ResponseEntity.ok(apiResponseDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(apiResponseDTO);
     }
 
     @DeleteMapping
     public ResponseEntity<ApiResponseDTO<WishDeleteResponseDTO>> deleteProductWish(@RequestBody WishDeleteRequestDTO wishDeleteRequestDTO) {
         ApiResponseDTO<WishDeleteResponseDTO> apiResponseDTO = wishService.deleteProductWish(wishDeleteRequestDTO);
-        return ResponseEntity.ok(apiResponseDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(apiResponseDTO);
     }
 
     @GetMapping("/all")
     public ResponseEntity<ApiResponseDTO<WishListResponseDTO>> getAllProductWish(@RequestBody WishListRequestDTO wishListRequestDTO) {
         ApiResponseDTO<WishListResponseDTO> apiResponseDTO = wishService.getAllProductWish(wishListRequestDTO);
-        return ResponseEntity.ok(apiResponseDTO);
+        return ResponseEntity.status(HttpStatus.FOUND).body(apiResponseDTO);
     }
 }
