@@ -1,7 +1,9 @@
-package com.chamo.chamowishes.Entity;
+package com.chamo.chamowishes.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
+@Getter
 @Entity
 @Table(name = "product")
 public class ProductEntity {

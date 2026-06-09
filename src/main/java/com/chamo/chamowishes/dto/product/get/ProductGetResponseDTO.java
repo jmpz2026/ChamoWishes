@@ -1,12 +1,11 @@
-package com.chamo.chamowishes.dto.wish.add;
+package com.chamo.chamowishes.dto.product.get;
 
 import com.chamo.chamowishes.dto.product.ProductResponseDTO;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
 @Setter
-public class WishAddResponseDTO {
-    private Long userId;
+@Getter
+public class ProductGetResponseDTO {
     private ProductResponseDTO productResponseDTO;
 }
