@@ -13,9 +13,9 @@ public class WishHistoryEntity {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "userId")
+    @Column(name = "user_id")
     private Long user;
 
-    @Column(name = "productId")
+    @Column(name = "product_id")
     private Long productId;
 }

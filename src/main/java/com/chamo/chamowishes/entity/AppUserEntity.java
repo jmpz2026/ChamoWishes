@@ -14,7 +14,7 @@ public class AppUserEntity {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "rolId")
+    @Column(name = "rol_id")
     private Long rolId;
 
     @Column(name = "name")

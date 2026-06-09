@@ -2,9 +2,9 @@
 -- Las tablas las crea Hibernate (ddl-auto: update); aqui solo se insertan datos.
 -- ON CONFLICT DO NOTHING => idempotente, no falla si ya existen.
 
-INSERT INTO app_user (id, "rolId", name, password) VALUES (1, 1, 'admin', 'admin')
+INSERT INTO app_user (id, rol_id, name, password) VALUES (1, 1, 'admin', 'admin')
     ON CONFLICT (id) DO NOTHING;
-INSERT INTO app_user (id, "rolId", name, password) VALUES (2, 2, 'user', 'user')
+INSERT INTO app_user (id, rol_id, name, password) VALUES (2, 2, 'user', 'user')
     ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO product (id, name, price, stock) VALUES (1, 'Teclado', 25.99, 100)
