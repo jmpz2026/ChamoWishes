@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -39,8 +40,8 @@ public class WishController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<ApiResponseDTO<WishListResponseDTO>> getAllProductWish(@RequestBody WishListRequestDTO wishListRequestDTO) {
-        ApiResponseDTO<WishListResponseDTO> apiResponseDTO = wishService.getAllProductWish(wishListRequestDTO);
+    public ResponseEntity<ApiResponseDTO<WishListResponseDTO>> getAllProductWish(@RequestParam Long userId) {
+        ApiResponseDTO<WishListResponseDTO> apiResponseDTO = wishService.getAllProductWish(userId);
         return ResponseEntity.status(HttpStatus.FOUND).body(apiResponseDTO);
     }
 }

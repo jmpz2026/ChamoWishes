@@ -88,8 +88,8 @@ public class WishService {
         return apiResponseDTO;
     }
 
-    public ApiResponseDTO<WishListResponseDTO> getAllProductWish(WishListRequestDTO wishListRequestDTO) {
-        List<WishEntity> wishEntityList = wishRepository.findAllByUser_Id(wishListRequestDTO.getUserId());
+    public ApiResponseDTO<WishListResponseDTO> getAllProductWish(Long userId) {
+        List<WishEntity> wishEntityList = wishRepository.findAllByUser_Id(userId);
 
         if(wishEntityList.isEmpty()) {
             throw new ResourceNotFoundException(MessageConstant.WISH_NOT_FOUND);
@@ -110,7 +110,7 @@ public class WishService {
         });
 
         WishListResponseDTO wishListResponseDTO = new WishListResponseDTO();
-        wishListResponseDTO.setUserId(wishListRequestDTO.getUserId());
+        wishListResponseDTO.setUserId(userId);
         wishListResponseDTO.setProducts(productResponseDTOList);
 
         ApiResponseDTO<WishListResponseDTO> apiResponseDTO = new ApiResponseDTO<>();
