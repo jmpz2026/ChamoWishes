@@ -18,25 +18,20 @@ import com.chamo.chamowishes.repository.AppUserRepository;
 import com.chamo.chamowishes.repository.ProductRepository;
 import com.chamo.chamowishes.repository.WishHistoryRepository;
 import com.chamo.chamowishes.repository.WishRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class WishService {
 
     private final WishRepository wishRepository;
     private final WishHistoryRepository wishHistoryRepository;
     private final ProductRepository productRepository;
     private final AppUserRepository appUserRepository;
-
-    public WishService(WishRepository wishRepository, WishHistoryRepository wishHistoryRepository, ProductRepository productRepository, AppUserRepository appUserRepository) {
-        this.wishRepository = wishRepository;
-        this.wishHistoryRepository = wishHistoryRepository;
-        this.productRepository = productRepository;
-        this.appUserRepository = appUserRepository;
-    }
 
     public ApiResponseDTO<WishAddResponseDTO> addProductWish(WishAddRequestDTO wishAddRequestDTO) {
         if(!productRepository.existsById(wishAddRequestDTO.getProductId())) {

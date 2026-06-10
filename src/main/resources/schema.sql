@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS wish_history (
 
 MERGE INTO app_user (id,rol_id,name,password) VALUES (1,1,'admin','admin');
 MERGE INTO app_user (id,rol_id,name,password) VALUES (2,2,'user','user');
-ALTER TABLE app_user ALTER COLUMN id RESTART WITH 2;
+ALTER TABLE app_user ALTER COLUMN id RESTART WITH 3;
 
 MERGE INTO product (id,name,price,stock) VALUES (1,'Teclado',25.99,100);
 MERGE INTO product (id,name,price,stock) VALUES (2,'Mouse',15.50,200);

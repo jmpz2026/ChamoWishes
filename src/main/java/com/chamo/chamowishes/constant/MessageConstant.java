@@ -19,4 +19,11 @@ public class MessageConstant {
 
     // USER
     public static final String USER_NOT_FOUND = "User not found";
+    public static final String USER_ALREADY_REGISTERED = "User already registered";
+    public static final String USER_REGISTERED = "User registered";
+    public static final String USER_LOGGED = "User logged";
+
+    // ROL
+    public static final String ROLE_NOT_FOUND = "Role not found";
+
 }

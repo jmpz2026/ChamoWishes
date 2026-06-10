@@ -8,19 +8,17 @@ import com.chamo.chamowishes.dto.product.get.ProductGetRequestDTO;
 import com.chamo.chamowishes.dto.product.get.ProductGetResponseDTO;
 import com.chamo.chamowishes.exception.ResourceNotFoundException;
 import com.chamo.chamowishes.repository.ProductRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class ProductService {
 
     private final ProductRepository productRepository;
-
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
 
     public ApiResponseDTO<ProductGetResponseDTO> getProductById(ProductGetRequestDTO productGetRequestDTO) {
         ProductEntity productEntity = productRepository.findById(productGetRequestDTO.getProductId())
