@@ -26,7 +26,7 @@ public class AuthController {
         return ResponseEntity.status(HttpStatus.CREATED).body(apiResponseDTO);
     }
 
-    @GetMapping
+    @PostMapping
     public ResponseEntity<ApiResponseDTO<AuthLoginResponseDTO>> login(@RequestBody AuthLoginRequestDTO authLoginRequestDTO) {
         ApiResponseDTO<AuthLoginResponseDTO> apiResponseDTO = authService.login(authLoginRequestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(apiResponseDTO);
